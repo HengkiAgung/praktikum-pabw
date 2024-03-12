@@ -6,11 +6,12 @@ import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 import { getCookies, setCookies, removeCookies } from './utils/Coockies';
 import { getUserLogged } from './repositories/AuthRepository';
+import { useUser } from './context/UserContext';
 
 import Navigation from './components/Navigation';
 
 function App() {
-  const [user, setUser] = useState(null);
+  const { user, setUser } = useUser();
 
   useEffect(() => {
     const getUser = async () => {

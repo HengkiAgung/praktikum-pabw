@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ProfilePage = ({ user }) => {
-    console.log(user);
     return (
         <div className="flex flex-col items-center">
             <h1 className="text-2xl font-bold mb-4">User Profile</h1>
