@@ -20,7 +20,7 @@ async function login({ email, password }) {
 }
 
 async function register({ fullname, email, password, umur, role }) {
-    const response = await fetch(`${BASE_URL}/register`, {
+    const response = await fetch(`${BASE_URL}/daftar`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

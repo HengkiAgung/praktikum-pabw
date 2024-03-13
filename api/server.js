@@ -11,18 +11,12 @@ dotenv.config();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/uploads", express.static("uploads"));
-
-app.get("/test", (req, res) => {
-  res.send("Hello World!");
-});
 
 app.post("/daftar", async (req, res) => {
   const { fullname, email, password, umur, role } = req.body;
   try {
     const post_data =
-      await db.query(`INSERT INTO user(fullname, email, password, umur, role) 
-                                    VALUES ("${fullname}", "${email}", "${password}", "${umur}", "${role}")`);
+      await db.query(`INSERT INTO user(fullname, email, password, umur, role) VALUES ("${fullname}", "${email}", "${password}", "${umur}", "${role}")`);
 
     if (post_data) {
       const logInsert = await db.query(
@@ -87,4 +81,8 @@ app.post("/verifytoken", (req, res) => {
   return res.json({
     msg: "Token invalid",
   });
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
